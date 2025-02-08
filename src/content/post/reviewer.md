@@ -5,4 +5,4 @@ publishDate: "27 Sep 2024"
 tags: ["research"]
 ---
 
-- > I am serving as a reviewer for the ICLR 2025 cycle.
+I am serving as a reviewer for the ICLR 2025 cycle.
