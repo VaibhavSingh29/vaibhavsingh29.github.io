@@ -1,10 +1,7 @@
 ---
-title: "Example Social Image"
-publishDate: "27 January 2023"
-description: "An example post for Astro Cactus, detailing how to add a custom social image card in the frontmatter"
-tags: ["example", "blog", "image"]
-ogImage: "/social-card.png"
-draft: true
+title: "Paper titled "ARISE : Iterative Rule Induction and Synthetic Data Generation for Text Classification" accepted at NAACL 2025"
+description: "Albuquerque, New Mexico, USA"
+tags: ["research"]
 ---
 
 ## Adding your own social image card to a post
