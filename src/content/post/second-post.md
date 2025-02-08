@@ -1,5 +1,5 @@
 ---
-title: "Paper titled "ARISE : Iterative Rule Induction and Synthetic Data Generation for Text Classification" accepted at NAACL 2025"
+title: "Paper titled 'ARISE : Iterative Rule Induction and Synthetic Data Generation for Text Classification' accepted at NAACL 2025"
 description: "Albuquerque, New Mexico, USA"
 tags: ["research"]
 ---
