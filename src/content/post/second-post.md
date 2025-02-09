@@ -8,5 +8,5 @@ We propose ARISE, a framework that iteratively induces rules and generates synth
 
 ArXiv: Coming Soon!
 
-ACL Anthalogy: Coming Soon!
+ACL Anthology: Coming Soon!
 
