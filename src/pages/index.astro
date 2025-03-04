@@ -55,10 +55,26 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 <PageLayout meta={{ title: "Home" }}>
 	<section>
 		<h1 class="title mb-6">Hey There!</h1>
-		<p class="mb-4">
-			Feel free to browse through the posts and 
-			learn more about me in the 'About' section. Enjoy your visit!
-		</p>
+		<div class="space-y-6">
+  <h1 class="title">About</h1>
+  <div class="flex items-center space-x-6">
+    <div class="space-y-4">
+      <p style="text-align: justify;">
+        I am currently pursuing my final year of M.Tech in Computer Science and Engineering at IIT Bombay, with a focus on Deep Learning and Natural Language Processing as my primary areas of research. I am currently working on model merging via task and language vector arithmetic.
+      </p>
+      <p style="text-align: justify;">
+        Academic Supervision: I am advised by Prof. Ganesh Ramakrishnan, Professor, IIT Bombay.      
+      </p>
+    </div>
+    <Image
+      src={aboutImg}
+      alt="A cartoon cactus looking at the 'Astro.build' logo"
+      loading="eager"
+      fetchpriority="high"
+      width={200}
+    />
+  </div>
+</div>
 		<SocialList />
 	</section>
 	<section aria-label="Blog post list" class="mt-16">
