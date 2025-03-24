@@ -36,4 +36,8 @@ export const menuLinks: Array<{ title: string; path: string }> = [
 		title: "Blog",
 		path: "/posts/",
 	},
+  {
+		title: "CV",
+		path: "https://drive.google.com/file/d/1jP0sMEvKIyDiOkvIc8lVooP_fV1-BpWj/view?usp=sharing",
+	},
 ];
