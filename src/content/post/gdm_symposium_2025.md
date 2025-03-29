@@ -1,6 +1,6 @@
 ---
-title: "Attended the 2-day Research Symposium at Google DeepMind Bangalore, India"
-description: "Attended the 2-day Research Symposium at Google DeepMind Bangalore, India"
+title: "Selected for the 2-day Research Symposium at Google DeepMind Bangalore, India"
+description: "Selected for the 2-day Research Symposium at Google DeepMind Bangalore, India"
 publishDate: "29 Jan 2025"
 tags: ["research"]
 ---
