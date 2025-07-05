@@ -38,6 +38,6 @@ export const menuLinks: Array<{ title: string; path: string }> = [
 	},
   {
 		title: "CV",
-		path: "https://drive.google.com/file/d/1gG58U6NCV4Ftze5AbJFPW5eAkWfYJQKX/view?usp=sharing",
+		path: "https://drive.google.com/file/d/1WIZRWhOeFMRDKej6zJYx_DNeV_wEFOTU/view?usp=sharing",
 	},
 ];
