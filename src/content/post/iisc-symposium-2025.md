@@ -1,5 +1,5 @@
 ---
-title: "Selected for the 3-day Reinforcement Learning Workshop at Indian Institute of Science Bangalore, India"
+title: "Selected for and attended the 3-day Reinforcement Learning Workshop at Indian Institute of Science Bangalore, India"
 description: "Selected for the 3-day Reinforcement Learning Workshop at Indian Institute of Science Bangalore, India"
 publishDate: "26 Jan 2025"
 tags: ["research"]
