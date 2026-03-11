@@ -1,5 +1,5 @@
 ---
-title: "Paper titled "Chow-Liu Ordering for Long-Context Reasoning in Chain-of-Agents" accepted at ICLR 2026 Workshop MemAgents"
+title: "Paper titled 'Chow-Liu Ordering for Long-Context Reasoning in Chain-of-Agents' accepted at ICLR 2026 Workshop MemAgents"
 description: "Our paper on Chow-Liu Ordering for Long-Context Reasoning in Chain-of-Agents was accepted at ICLR 2026 MemAgents Workshop."
 publishDate: "3 Mar 2026"
 tags: ["research", "publication"]
