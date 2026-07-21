@@ -49,7 +49,7 @@ const publications: Array<{ title: string; authors: string; venue: string; year:
 	<section>
 		<h1 class="title mb-6">Hey There!</h1>
 		<div class="space-y-6">
-  <div class="flex items-center space-x-6">
+  <div class="flex flex-col items-center gap-6 sm:flex-row sm:gap-6">
     <div class="space-y-4">
   <p style="text-align: justify;">
     I am a Research Fellow at Microsoft Research India, in the Future of Scalable Software Engineering (FoSSE) group, under the guidance of Arun Iyer and Sriram Rajamani. My current research focuses on Long Context Modeling, Memory Management, and RL in LLMs (Agentic) for long-horizon software engineering tasks.
@@ -67,6 +67,7 @@ const publications: Array<{ title: string; authors: string; venue: string; year:
       loading="eager"
       fetchpriority="high"
       width={200}
+      class="w-40 flex-shrink-0 sm:w-[200px]"
     />
   </div>
 </div>
@@ -112,7 +113,7 @@ const publications: Array<{ title: string; authors: string; venue: string; year:
 		</ul>
 	</section>
 	<section aria-label="Blog post list" class="mt-16">
-		<h2 class="title mb-4 text-xl">Posts</h2>
+		<h2 class="title mb-4 text-xl">Updates</h2>
 		<ul class="space-y-4 sm:space-y-2">
 			{
 				allPostsByDate.map((p) => (
