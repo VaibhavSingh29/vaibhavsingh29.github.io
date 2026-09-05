@@ -12,6 +12,10 @@ import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
 export default defineConfig({
 	// ! Please remember to replace the following site property with your own domain
 	site: "https://vaibhavsingh29.github.io/",
+	redirects: {
+		"/posts/reviewer_iclr_2026/": "/posts/reviewer2026/",
+		"/posts/reviewer_iclr_2026_memagents/": "/posts/workshopreviewer2026/",
+	},
 	markdown: {
 		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
 		remarkRehype: { footnoteLabelProperties: { className: [""] } },

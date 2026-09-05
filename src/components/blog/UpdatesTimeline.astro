@@ -1,0 +1,144 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../FormattedDate.astro";
+
+interface Props {
+	posts: CollectionEntry<"post">[];
+}
+
+const { posts } = Astro.props;
+---
+
+<ol class="timeline m-0 list-none p-0">
+	{
+		posts.map((post, index) => (
+			<li class="timeline-item">
+				<span class="timeline-marker" aria-hidden="true" />
+				<div class="timeline-date">
+					<FormattedDate
+						date={post.data.updatedDate ?? post.data.publishDate}
+						class="whitespace-nowrap text-xs leading-6 text-textColor/70"
+					/>
+					{index === 0 && (
+						<span class="rounded-full border border-accent/20 bg-accent/10 px-2 text-[10px] font-medium leading-5 text-accent">
+							Latest
+						</span>
+					)}
+				</div>
+				<div class="min-w-0">
+					<a href={`/posts/${post.slug}/`} class="timeline-link leading-6" rel="prefetch">
+						{post.data.title}
+					</a>
+				</div>
+			</li>
+		))
+	}
+</ol>
+
+<style>
+	.timeline {
+		--timeline-axis: 0.375rem;
+	}
+
+	.timeline-item {
+		position: relative;
+		display: grid;
+		gap: 0.25rem;
+		padding: 0 0 1.75rem 1.75rem;
+	}
+
+	.timeline-item:last-child {
+		padding-bottom: 0;
+	}
+
+	.timeline-item:not(:last-child)::before {
+		position: absolute;
+		top: 0.75rem;
+		bottom: -0.75rem;
+		left: var(--timeline-axis);
+		width: 1px;
+		background-color: hsl(var(--theme-accent) / 0.2);
+		content: "";
+		transform: translateX(-50%);
+	}
+
+	.timeline-marker {
+		position: absolute;
+		top: 0.75rem;
+		left: var(--timeline-axis);
+		width: 0.625rem;
+		height: 0.625rem;
+		border: 2px solid hsl(var(--theme-accent) / 0.5);
+		border-radius: 50%;
+		background-color: hsl(var(--theme-bg));
+		transform: translate(-50%, -50%);
+		transition:
+			border-color 160ms ease,
+			box-shadow 160ms ease;
+	}
+
+	.timeline-item:first-child .timeline-marker {
+		border-color: hsl(var(--theme-accent));
+		background-color: hsl(var(--theme-accent));
+		box-shadow: 0 0 0 4px hsl(var(--theme-accent) / 0.1);
+	}
+
+	.timeline-date {
+		display: flex;
+		align-items: center;
+		gap: 0.625rem;
+	}
+
+	.timeline-link {
+		border-radius: 0.125rem;
+		overflow-wrap: anywhere;
+		text-decoration: underline;
+		text-decoration-color: hsl(var(--theme-text) / 0.2);
+		text-decoration-thickness: 1px;
+		text-underline-offset: 4px;
+		transition:
+			color 160ms ease,
+			text-decoration-color 160ms ease;
+	}
+
+	.timeline-link:hover {
+		color: hsl(var(--theme-link));
+		text-decoration-color: currentColor;
+	}
+
+	.timeline-link:focus-visible {
+		outline: 2px solid hsl(var(--theme-accent));
+		outline-offset: 4px;
+	}
+
+	.timeline-item:hover .timeline-marker,
+	.timeline-item:focus-within .timeline-marker {
+		border-color: hsl(var(--theme-accent));
+		box-shadow: 0 0 0 4px hsl(var(--theme-accent) / 0.1);
+	}
+
+	@media (min-width: 640px) {
+		.timeline {
+			--timeline-axis: 8rem;
+		}
+
+		.timeline-item {
+			grid-template-columns: 7rem minmax(0, 1fr);
+			column-gap: 2rem;
+			padding-left: 0;
+		}
+
+		.timeline-date {
+			flex-direction: column;
+			align-items: flex-end;
+			gap: 0.375rem;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.timeline-marker,
+		.timeline-link {
+			transition: none;
+		}
+	}
+</style>

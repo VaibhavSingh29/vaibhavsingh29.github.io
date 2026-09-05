@@ -7,9 +7,9 @@ import { Icon } from "astro-icon";
 */
 const socialLinks = [
 	{
-		name: "mdi:github",
-		friendlyName: "Github",
-		link: "https://github.com/VaibhavSingh29",
+		name: "mdi:email",
+		friendlyName: "Email",
+		link: "mailto:contacttovaibhav@gmail.com",
 	},
 	{
 		name: "simple-icons:googlescholar",
@@ -17,38 +17,42 @@ const socialLinks = [
 		link: "https://scholar.google.com/citations?user=2IpL7ioAAAAJ&hl=en",
 	},
 	{
+		name: "mdi:github",
+		friendlyName: "GitHub",
+		link: "https://github.com/VaibhavSingh29",
+	},
+	{
 		name: "mdi:linkedin",
 		friendlyName: "LinkedIn",
 		link: "https://www.linkedin.com/in/vaibhav-s-10263a248",
 	},
 	{
-		name: "mdi:email",
-		friendlyName: "email",
-		link: "mailto:contacttovaibhav@gmail.com",
+		name: "mdi:youtube",
+		friendlyName: "Resume",
+		link: "https://www.youtube.com/watch?v=TusY3CwMBwg",
 	},
-  {
-    name: "mdi:youtube",
-    friendlyName: "Resume",
-    link: "https://www.youtube.com/watch?v=TusY3CwMBwg",
-  },
 ];
 ---
 
-<div class="flex flex-wrap items-end gap-x-4">
-	<p>Find me on</p>
-	<ul class="flex flex-1 items-center gap-x-2 sm:flex-initial">
+<nav aria-label="Contact and profiles" class="w-full">
+	<ul class="flex items-center justify-center gap-1">
 		{
 			socialLinks.map(({ link, name, friendlyName }) => {
 				const isEmail = name.includes("email") || friendlyName.toLowerCase().includes("email");
 				return (
 					<li class="flex">
 						<a
-							class="inline-block p-1 sm:hover:text-link"
+							class="social-link inline-flex items-center justify-center rounded-sm p-1.5 text-textColor transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent motion-reduce:transition-none"
 							href={link}
 							target="_blank"
 							rel={`noopener noreferrer me ${isEmail ? "authn" : ""}`}
 						>
-							<Icon class="h-6 w-6" name={name} aria-hidden="true" focusable="false" />
+							<Icon
+								class="h-5 w-5 flex-shrink-0"
+								name={name}
+								aria-hidden="true"
+								focusable="false"
+							/>
 							<span class="sr-only">{friendlyName}</span>
 						</a>
 					</li>
@@ -56,4 +60,4 @@ const socialLinks = [
 			})
 		}
 	</ul>
-</div>
+</nav>

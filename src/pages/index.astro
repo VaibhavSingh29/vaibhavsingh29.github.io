@@ -5,7 +5,7 @@ import aboutImg from "@/assets/about-astro.png";
 import chowLiuImg from "@/assets/chow-liu.png";
 import ariseImg from "@/assets/arise.png";
 import threeProngedImg from "@/assets/a-three-pronged.png";
-import PostPreview from "@/components/blog/PostPreview";
+import UpdatesTimeline from "@/components/blog/UpdatesTimeline";
 import SocialList from "@/components/SocialList";
 import { getAllPosts, sortMDByDate } from "@/utils";
 
@@ -48,80 +48,118 @@ const publications: Array<{ title: string; authors: string; venue: string; year:
 <PageLayout meta={{ title: "Home" }}>
 	<section>
 		<h1 class="title mb-6">Hey There!</h1>
-		<div class="space-y-6">
-  <div class="flex flex-col items-center gap-6 sm:flex-row sm:gap-6">
-    <div class="space-y-4">
-  <p style="text-align: justify;">
-    I am a Research Fellow at Microsoft Research India, in the Future of Scalable Software Engineering (FoSSE) group, under the guidance of Arun Iyer and Sriram Rajamani. My current research focuses on Long Context Modeling, Memory Management, and RL in LLMs (Agentic) for long-horizon software engineering tasks.
-  </p>
-  <p style="text-align: justify;">
-    I completed my M.Tech in Computer Science and Engineering at IIT Bombay, advised by Prof. Ganesh Ramakrishnan, where I worked on parameter-efficient adaptation, distillation, and merging in LLMs, with downstream applications in cross-lingual NLP and robust out-of-distribution generalization.
-  </p>
-  <p style="text-align: justify;">
-    <strong>Research Interests:</strong> Continual Learning, Long Context Reasoning, Memory-Augmented Agents
-  </p>
-</div>
-    <Image
-      src={aboutImg}
-      alt="A cartoon cactus looking at the 'Astro.build' logo"
-      loading="eager"
-      fetchpriority="high"
-      width={200}
-      class="w-40 flex-shrink-0 sm:w-[200px]"
-    />
-  </div>
-</div>
-		<SocialList />
+		<div class="flex flex-col items-center gap-8 sm:flex-row sm:gap-6">
+			<div class="flex w-full max-w-[200px] flex-shrink-0 flex-col items-center gap-3 sm:order-last">
+				<Image
+					src={aboutImg}
+					alt="Portrait of Vaibhav Singh"
+					loading="eager"
+					fetchpriority="high"
+					width={200}
+					class="w-40 flex-shrink-0 rounded-lg sm:w-[200px]"
+				/>
+				<SocialList />
+			</div>
+			<div class="min-w-0 flex-1 space-y-5 text-left leading-relaxed">
+				<p class="font-semibold text-accent">
+					I am seeking PhD opportunities for Fall 2027.
+				</p>
+				<p>
+					I am a Research Fellow at Microsoft Research India, in the Future of Scalable Software
+					Engineering (FoSSE) group, under the guidance of Arun Iyer and Sriram Rajamani. My
+					current research focuses on Long Context Modeling, Memory Management, and RL in LLMs
+					(Agentic) for long-horizon software engineering tasks.
+				</p>
+				<p>
+					I completed my M.Tech in Computer Science and Engineering at IIT Bombay, advised by
+					Prof. Ganesh Ramakrishnan, where I worked on parameter-efficient adaptation,
+					distillation, and merging in LLMs, with downstream applications in cross-lingual NLP
+					and robust out-of-distribution generalization.
+				</p>
+				<p>
+					<strong>Research Interests:</strong> Continual Learning, Long Context Reasoning,
+					Memory-Augmented Agents
+				</p>
+			</div>
+		</div>
 	</section>
-	<section class="mt-16">
-		<h2 class="title mb-4 text-xl">Publications</h2>
-		<ul class="space-y-4">
+	<section aria-labelledby="publications-heading" class="mt-16">
+		<h2 id="publications-heading" class="title mb-6 text-xl">Publications</h2>
+		<ul class="divide-y divide-textColor/10">
 			{
 				publications.map(({ title, authors, venue, year, link, linkLabel, oral, img }) => (
-					<li class="flex gap-4">
-						<div class="hidden sm:block flex-shrink-0 w-[180px]">
-							<Image src={img} alt={title} width={360} densities={[1, 2]} class="rounded border border-border w-full h-auto" />
+					<li class="publication-entry grid items-start gap-4 py-6 first:pt-0 last:pb-0 sm:grid-cols-[160px_minmax(0,1fr)] sm:gap-6">
+						<div class="publication-thumbnail hidden overflow-hidden rounded-lg border border-textColor/10 bg-white sm:block">
+							<div class="aspect-h-3 aspect-w-4">
+								<Image
+									src={img}
+									alt={title}
+									width={360}
+									densities={[1, 2]}
+									class="h-full w-full object-contain p-3"
+								/>
+							</div>
 						</div>
-						<div class="border-l-2 border-accent pl-4">
-						<p class="font-semibold">{title}</p>
-						<p class="text-sm text-muted-foreground">{authors}</p>
-						<p class="text-sm">
-							<span class="italic">{venue}</span>, {year}
-							{oral && (
-								<span class="ml-2 inline-block rounded-sm bg-accent/10 px-1.5 py-0.5 text-xs font-bold text-accent">
-									Oral
-								</span>
-							)}
+						<div class="min-w-0">
+							<h3 class="break-words text-base font-semibold leading-6 text-accent-2">
+								{title}
+							</h3>
+							<p class="publication-authors mt-2 text-xs leading-5 text-textColor/70">
+								{authors.split(", ").map((author, index) => (
+									<>
+										{index > 0 && ", "}
+										{author.replace(/\*$/, "") === "Vaibhav Singh" ? (
+											<strong class="font-semibold text-accent-2">{author}</strong>
+										) : (
+											author
+										)}
+									</>
+								))}
+							</p>
+							<p class="publication-venue mt-2 text-xs leading-6 text-textColor/70">
+								<span class="font-medium text-textColor">{venue}</span>
+								<span class="whitespace-nowrap">{" "}&middot; {year}</span>
+								{oral && (
+									<span class="ml-2 inline-block rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 align-middle text-[10px] font-semibold leading-4 text-accent">
+										Oral
+									</span>
+								)}
+							</p>
 							{link && (
-								<>
-									{" "}·{" "}
+								<div class="mt-3">
 									<a
 										href={link}
 										target="_blank"
 										rel="noopener noreferrer"
-										class="cactus-link"
+										class="publication-link inline-flex items-center gap-1.5 rounded-md border border-textColor/20 px-2.5 py-1 text-xs font-medium leading-5 text-textColor transition-colors hover:border-accent/40 hover:bg-accent/5 hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent motion-reduce:transition-none"
 									>
-										{linkLabel}
+										{linkLabel ?? "Paper"}
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="1.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											class="h-3.5 w-3.5"
+											aria-hidden="true"
+											focusable="false"
+										>
+											<path d="M7 17 17 7M7 7h10v10" />
+										</svg>
+										<span class="sr-only"> (opens in a new tab)</span>
 									</a>
-								</>
+								</div>
 							)}
-						</p>
 						</div>
 					</li>
 				))
 			}
 		</ul>
 	</section>
-	<section aria-label="Blog post list" class="mt-16">
-		<h2 class="title mb-4 text-xl">Updates</h2>
-		<ul class="space-y-4 sm:space-y-2">
-			{
-				allPostsByDate.map((p) => (
-					<li class="flex flex-col gap-x-2 sm:flex-row">
-						<PostPreview post={p} />
-					</li>
-				))
-			}
-		</ul>
+	<section aria-labelledby="updates-heading" class="mt-16">
+		<h2 id="updates-heading" class="title mb-6 text-xl">Updates</h2>
+		<UpdatesTimeline posts={allPostsByDate} />
 	</section>
 </PageLayout>
