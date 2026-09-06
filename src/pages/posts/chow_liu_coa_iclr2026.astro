@@ -1,0 +1,21 @@
+---
+import { siteConfig } from "@/site-config";
+
+const destination = "/posts/publish_iclr2026/";
+---
+
+<html lang={siteConfig.lang}>
+	<head>
+		<meta charset="utf-8" />
+		<title>Continue to the March 3 announcement</title>
+		<meta http-equiv="refresh" content={`0;url=${destination}`} />
+		<meta name="robots" content="noindex" />
+		<link rel="canonical" href={new URL(destination, Astro.site)} />
+	</head>
+	<body>
+		<p>
+			This duplicate announcement has been consolidated into the
+			<a href={destination}>March 3, 2026 announcement</a>.
+		</p>
+	</body>
+</html>
