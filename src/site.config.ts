@@ -22,6 +22,9 @@ export const siteConfig: SiteConfig = {
 	},
 };
 
+export const cvUrl =
+	"https://drive.google.com/file/d/154RmEw78fjHvxu2fvJmzNHMsDi4fyCOt/view?usp=sharing";
+
 // Used to generate links in both the Header & Footer.
 export const menuLinks: Array<{ title: string; path: string }> = [
 	{
@@ -36,8 +39,8 @@ export const menuLinks: Array<{ title: string; path: string }> = [
 		title: "Blog",
 		path: "/posts/",
 	},
-  {
+	{
 		title: "CV",
-		path: "https://drive.google.com/file/d/154RmEw78fjHvxu2fvJmzNHMsDi4fyCOt/view?usp=sharing",
+		path: cvUrl,
 	},
 ];

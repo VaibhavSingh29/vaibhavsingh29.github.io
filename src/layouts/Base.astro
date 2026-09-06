@@ -7,6 +7,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SkipLink from "@/components/SkipLink";
+import CVPreview from "@/components/CVPreview";
 import { siteConfig } from "@/site-config";
 
 interface Props {
@@ -31,5 +32,6 @@ const {
 			<slot />
 		</main>
 		<Footer />
+		<CVPreview />
 	</body>
 </html>

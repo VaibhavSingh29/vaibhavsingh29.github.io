@@ -1,5 +1,5 @@
 ---
-import { menuLinks, siteConfig } from "@/site-config";
+import { cvUrl, menuLinks, siteConfig } from "@/site-config";
 
 const year = new Date().getFullYear();
 ---
@@ -22,6 +22,7 @@ const year = new Date().getFullYear();
 			menuLinks.map((link) => (
 				<a
 					href={link.path}
+					data-cv-preview={link.path === cvUrl ? "true" : undefined}
 					class="px-4 py-2 sm:px-2 sm:py-0 sm:hover:text-textColor sm:hover:underline"
 				>
 					{link.title}
