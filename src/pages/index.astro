@@ -48,8 +48,10 @@ const publications: Array<{ title: string; authors: string; venue: string; year:
 <PageLayout meta={{ title: "Home" }}>
 	<section>
 		<h1 class="title mb-6">Hey There!</h1>
-		<div class="flex flex-col items-center gap-8 sm:flex-row sm:gap-6">
-			<div class="flex w-full max-w-[200px] flex-shrink-0 flex-col items-center gap-3 sm:order-last">
+		<div class="flow-root">
+			<div
+				class="mx-auto mb-6 flex w-full max-w-[200px] flex-col items-center gap-3 sm:float-right sm:mb-4 sm:ms-6"
+			>
 				<Image
 					src={aboutImg}
 					alt="Portrait of Vaibhav Singh"
@@ -60,28 +62,63 @@ const publications: Array<{ title: string; authors: string; venue: string; year:
 				/>
 				<SocialList />
 			</div>
-			<div class="min-w-0 flex-1 space-y-5 text-left leading-relaxed">
+			<div class="space-y-5 text-left leading-relaxed">
+				<p class="font-semibold text-accent">I am seeking PhD opportunities for Fall 2027.</p>
 				<p>
 					I am a Research Fellow at Microsoft Research India, in the Future of Scalable Software
-					Engineering (FoSSE) group, under the guidance of Arun Iyer and Sriram Rajamani. My
-					current research focuses on Long Context Modeling, Memory Management, and RL in LLMs
-					(Agentic) for long-horizon software engineering tasks.
+					Engineering (FoSSE) group, under the guidance of <a
+						href="https://scholar.google.com/citations?user=Ngm0j_EAAAAJ&hl=en"
+						class="cactus-link"
+						target="_blank"
+						rel="noopener noreferrer">Arun Iyer</a
+					> and <a
+						href="https://scholar.google.com/citations?user=o-EdErcAAAAJ&hl=en"
+						class="cactus-link"
+						target="_blank"
+						rel="noopener noreferrer">Sriram Rajamani</a
+					>.
 				</p>
 				<p>
-					I completed my M.Tech in Computer Science and Engineering at IIT Bombay, advised by
-					Prof. Ganesh Ramakrishnan, where I worked on parameter-efficient adaptation,
-					distillation, and merging in LLMs, with downstream applications in cross-lingual NLP
-					and robust out-of-distribution generalization.
+					My research at Microsoft focuses on AI for software engineering, particularly methods for
+					experiential learning in LLM agents. I have been fortunate to work on three research
+					problems (in that order):
+				</p>
+				<ol class="list-decimal space-y-3 ps-5">
+					<li>
+						How to learn reusable knowledge bases from engineering knowledge embedded in pull
+						requests and commit history of very large codebases.
+					</li>
+					<li>
+						How to enable experiential learning in LLM agents through novel mechanisms for using and
+						refining these knowledge bases on unseen codebases.
+					</li>
+					<li>
+						How to leverage these long-horizon agentic trajectories to post-train LLMs using RL
+						(building on top of OPD and RLVR).
+					</li>
+				</ol>
+				<p>
+					On the engineering side, I have also built autonomous agent execution infrastructure for
+					long-horizon software-engineering tasks, like migration of very large .NET codebases at
+					Microsoft.
 				</p>
 				<p>
-					<strong>Research Interests:</strong> Continual Learning, Long Context Reasoning,
-					Memory-Augmented Agents
+					I completed my M.Tech in Computer Science and Engineering at IIT Bombay, advised by Prof.
+					<a
+						href="https://scholar.google.com/citations?user=W1ZpREMAAAAJ&hl=en"
+						class="cactus-link"
+						target="_blank"
+						rel="noopener noreferrer">Ganesh Ramakrishnan</a
+					>, where I worked on parameter-efficient adaptation, distillation, and merging in LLMs.
+				</p>
+				<p>
+					<strong>Research Interests:</strong> Continual Learning, On-policy RL for LLMs
 				</p>
 			</div>
 		</div>
 	</section>
 	<section aria-labelledby="publications-heading" class="mt-16">
-		<h2 id="publications-heading" class="title mb-6 text-xl">Publications</h2>
+		<h2 id="publications-heading" class="title mb-6 text-xl">Publications / Pre-prints</h2>
 		<ul class="divide-y divide-textColor/10">
 			{
 				publications.map(({ title, authors, venue, year, link, linkLabel, oral, img }) => (

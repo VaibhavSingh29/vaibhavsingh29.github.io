@@ -7,14 +7,14 @@ import { Icon } from "astro-icon";
 */
 const socialLinks = [
 	{
-		name: "mdi:email",
-		friendlyName: "Email",
-		link: "mailto:contacttovaibhav@gmail.com",
-	},
-	{
 		name: "simple-icons:googlescholar",
 		friendlyName: "Scholar",
 		link: "https://scholar.google.com/citations?user=2IpL7ioAAAAJ&hl=en",
+	},
+	{
+		name: "alphaxiv",
+		friendlyName: "alphaXiv",
+		link: "https://www.alphaxiv.org/@vaibhav-singh-3",
 	},
 	{
 		name: "mdi:github",
@@ -27,6 +27,11 @@ const socialLinks = [
 		link: "https://www.linkedin.com/in/vaibhav-s-10263a248",
 	},
 	{
+		name: "x",
+		friendlyName: "X (Twitter)",
+		link: "https://x.com/7konan211",
+	},
+	{
 		name: "mdi:youtube",
 		friendlyName: "Resume",
 		link: "https://www.youtube.com/watch?v=TusY3CwMBwg",
@@ -34,30 +39,23 @@ const socialLinks = [
 ];
 ---
 
-<nav aria-label="Contact and profiles" class="w-full">
-	<ul class="flex items-center justify-center gap-1">
+<nav aria-label="Social profiles" class="w-40 max-w-full sm:w-full">
+	<ul class="flex items-center justify-between">
 		{
-			socialLinks.map(({ link, name, friendlyName }) => {
-				const isEmail = name.includes("email") || friendlyName.toLowerCase().includes("email");
-				return (
-					<li class="flex">
-						<a
-							class="social-link inline-flex items-center justify-center rounded-sm p-1.5 text-textColor transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent motion-reduce:transition-none"
-							href={link}
-							target="_blank"
-							rel={`noopener noreferrer me ${isEmail ? "authn" : ""}`}
-						>
-							<Icon
-								class="h-5 w-5 flex-shrink-0"
-								name={name}
-								aria-hidden="true"
-								focusable="false"
-							/>
-							<span class="sr-only">{friendlyName}</span>
-						</a>
-					</li>
-				);
-			})
+			socialLinks.map(({ link, name, friendlyName }) => (
+				<li class="flex justify-center">
+					<a
+						class="social-link inline-flex items-center justify-center rounded-sm p-1 text-textColor transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent motion-reduce:transition-none"
+						href={link}
+						title={friendlyName}
+						target="_blank"
+						rel="noopener noreferrer me"
+					>
+						<Icon class="h-4 w-4 flex-shrink-0" name={name} aria-hidden="true" focusable="false" />
+						<span class="sr-only">{friendlyName}</span>
+					</a>
+				</li>
+			))
 		}
 	</ul>
 </nav>
