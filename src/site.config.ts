@@ -23,7 +23,7 @@ export const siteConfig: SiteConfig = {
 };
 
 export const cvUrl =
-	"https://drive.google.com/file/d/154RmEw78fjHvxu2fvJmzNHMsDi4fyCOt/view?usp=sharing";
+	"https://drive.google.com/file/d/1nLgFha6zU0Je8qlEfBhpFGAb3U8UZccp/view?usp=sharing";
 
 // Used to generate links in both the Header & Footer.
 export const menuLinks: Array<{ title: string; path: string }> = [
